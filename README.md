@@ -68,6 +68,6 @@ wind speed, wind gust, wind dir, temperature, pressure, humidity, voltage, resta
 * One digit to identify the first event
 
 ### TODO:
-*[ ] BUGFIX Listener seams like it randomly stops receiving events but does not stop running.
-*[ ] Fix errors when events have bad data. There is no error handling now.
-*[ ] Add WeatherFlow Reporting Support.
+* [ ] BUGFIX Listener seams like it randomly stops receiving events but does not stop running.
+* [ ] Fix errors when events have bad data. There is no error handling now.
+* [ ] Add WeatherFlow Reporting Support.
