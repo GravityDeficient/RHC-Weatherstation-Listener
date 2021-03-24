@@ -1,0 +1,19 @@
+{
+  "name": "rhc-weatherstation-listener",
+  "version": "1.0.0",
+  "description": "Listens for weather station events on the particle-cloud api and sends it to Wunderground, Windy, PWSWeather, Weathercloud, OpenWeatherMap, and/or cwop.",
+  "main": "listener.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "console-stamp": "^0.2.9",
+    "convert-units": "^2.3.4",
+    "moment": "^2.29.1",
+    "particle-api-js": "^9.1.0",
+    "request": "^2.88.2",
+    "yargs": "^16.2.0"
+  }
+}
