@@ -1,7 +1,9 @@
 const request = require('request');
+const net = require('net');
 let cwop = {
-    url: '',
-    query: {
+    host: 'cwop.aprs.net',
+    port: 14580,
+    packet: {
         ID: 0,
         PASSWORD: 0,
         winddir: 0,
@@ -30,10 +32,15 @@ let cwop = {
         }
     },
     send: function() {
-        request({url:this.url, qs:this.query}, function(err, response, body) {
-            if(err) { console.error(err); return; }
-            console.log("CWOP Get response: " + response.statusCode);
+        const client = new Net.Socket();
+        client.connect({ port: this.port, host: this.host }, function() {
+            client.write('Hello, server.');
         });
+        client.on('end', function() {
+            console.log('Requested an end to the TCP connection');
+        });
+
+        console.log("CWOP/APRS sent..");
     }
 };
 module.exports = cwop;

@@ -1,5 +1,5 @@
 # RHC - Weather Station Listener
-An weatherstation event listener in nodejs, for particle cloud weatherstations running [RHC-weatherstation](https://github.com/GravityDeficient/RHC-weatherstation) code.
+A Nodejs weatherstation event listener for particle cloud weatherstations running [RHC-weatherstation](https://github.com/GravityDeficient/RHC-weatherstation) code.
 
 When an event is received it is parsed and sent to WUnderground, Windy, PWSWeather, Weathercloud, and/or OpenWeatherMap.
 
@@ -70,3 +70,4 @@ wind speed, wind gust, wind dir, temperature, pressure, humidity, voltage, resta
 * [ ] Fix errors when events have bad data. There is no error handling now.
 * [ ] Add WeatherFlow Reporting Support.
 * [ ] Add CWOP/APRS Reporting Support. (This is in progress)
+

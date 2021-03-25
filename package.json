@@ -12,6 +12,7 @@
     "console-stamp": "^0.2.9",
     "convert-units": "^2.3.4",
     "moment": "^2.29.1",
+    "net": "^1.0.2",
     "particle-api-js": "^9.1.0",
     "request": "^2.88.2",
     "yargs": "^16.2.0"
