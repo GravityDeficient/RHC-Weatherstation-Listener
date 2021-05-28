@@ -46,6 +46,9 @@ var args = require('yargs')
     // .option('cwop', {
     //     describe: 'CWOP settings.'
     // })
+    .option('file', {
+        describe: 'Output reports to a file. path/to/file'
+    })
 
     .demandOption(['deviceID'], 'Please provide device ID at minimum.')
     .help()
@@ -143,6 +146,15 @@ if(args.openweathermap !== undefined) {
 //     storage.openweathermap.login(openweathermap_credentials.external_id, weathercloud_credentials.apikey);
 //     console.log('Reporting to OpenWeatherMap: ' + openweathermap_credentials.external_id);
 // }
+
+if(args.file !== undefined) {
+    const file_path = {
+        file: args.file,
+        type: args.file.split('.').pop()
+    };
+    storage.file = require(__dirname + '/services/file.js')
+    console.info('Saving reports to: ' + file_path.file);
+}
 
 var listener = require(__dirname + '/listener.js').listener;
 listener(credentials, event_name, device, dir_offset, storage);
