@@ -2,8 +2,13 @@
 require('console-stamp')(console, 'yyyy-mm-dd HH:MM:ss');
 
 console.log('App Start..');
+
+const dotenv = require('dotenv');
+dotenv.config();
+
 var args = require('yargs')
-    .option('user', {
+    .env()
+    .option('login', {
         alias: 'u',
         describe: 'A username:password combination \n If no username and password combination or access token is provided the default test:test user will be used.'
     })
