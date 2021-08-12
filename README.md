@@ -66,7 +66,7 @@ wind speed, wind gust, wind dir, temperature, pressure, humidity, voltage, resta
 * One digit to identify the first event
 
 ### TODO:
-* [ ] BUGFIX Listener seams like it randomly stops receiving events but does not stop running.
+* [ ] BUGFIX Listener will stop receiving events when the particle cloud token expires (90 days) but does not stop running.
 * [ ] Fix errors when events have bad data. There is no error handling now.
 * [ ] Add WeatherFlow Reporting Support.
 * [ ] Add CWOP/APRS Reporting Support. (This is in progress)
