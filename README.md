@@ -22,7 +22,7 @@ When an event is received it is parsed and sent to WUnderground, Windy, PWSWeath
 * --pwsweather : [PWSWeather](https://www.pwsweather.com/stationlist.php) settings. id:key
 * --weathercloud : [Weathercloud](https://app.weathercloud.net/devices) settings. id:key
 * --openweathermap : [OpenWeatherMap](https://home.openweathermap.org/api_keys) settings. id:key
-* --cwop : [CWOP](http://www.wxqa.com/) settings. id:key
+* --cwop : [CWOP](http://www.wxqa.com/) settings. id:key (not functional)
 
 ## Additional Notes:
 Event data should have a 9 character or 22 characters length
