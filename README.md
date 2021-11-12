@@ -8,7 +8,7 @@ When an event is received it is parsed and sent to WUnderground, Windy, PWSWeath
 
 ## Parameters:
 #### Required Parameters:
-* --deviceid     :   The device ID, name or mine for only my devices.
+* --deviceID     :   The device ID, name or mine for only my devices.
 
 #### Optional Parameters:
 * -u --user :   A username:password combination. If no username and password combination or access token is provided the default test:test user will be used.
