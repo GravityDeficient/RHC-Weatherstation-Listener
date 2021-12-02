@@ -24,7 +24,7 @@ let wunderground = {
             this.query.tempf = pdata.temp;
         }
         if(pdata.pres !== undefined) {
-            this.query.baromin = pdata.pres/3386;
+            this.query.baromin = (pdata.pres / 10) * 0.02952999;
         }
         if(pdata.hum !== undefined) {
             this.query.humidity = pdata.hum;
