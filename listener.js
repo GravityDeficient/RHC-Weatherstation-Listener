@@ -118,17 +118,17 @@ exports.parseData = function (data, dir_offset) {
         }
 
         if(n == 18) {
-            pdata.temp = parseInt(data.data.substring(8,10));
-            pdata.pres = parseInt(data.data.substring(11,15));
-            pdata.pwr = ((parseInt(data.data.substring(16,17)) * .1) + 5).toFixed(2);
+            pdata.temp = parseInt(data.data.substring(7,10));
+            pdata.pres = parseInt(data.data.substring(10,15));
+            pdata.pwr = ((parseInt(data.data.substring(15,17)) * .1) + 5).toFixed(2);
             pdata.startup = parseInt(data.data.substring(17,18));
         }
 
         if(n == 21) {
-            pdata.temp = parseInt(data.data.substring(8,10));
-            pdata.pres = parseInt(data.data.substring(11,15));
-            pdata.hum = parseInt(data.data.substring(16,18));
-            pdata.pwr = ((parseInt(data.data.substring(19,20)) * .1) + 5).toFixed(2);
+            pdata.temp = parseInt(data.data.substring(7,10));
+            pdata.pres = parseInt(data.data.substring(10,15));
+            pdata.hum = parseInt(data.data.substring(15,18));
+            pdata.pwr = ((parseInt(data.data.substring(18,20)) * .1) + 5).toFixed(2);
             pdata.startup = parseInt(data.data.substring(20,21));
         }
 
