@@ -7,6 +7,7 @@ let pwsweather = {
         PASSWORD: 0,
         winddir: 0,
         windspeedmph: 0,
+        windgustmph: 0,
     },
     login: function(id, password) {
         this.query.ID = id;
@@ -16,6 +17,7 @@ let pwsweather = {
         this.query.dateutc = moment().utc().format("YYYY-MM-DD HH:mm:ss");
         this.query.winddir = pdata.dir;
         this.query.windspeedmph = pdata.wind;
+        this.query.windgustmph = pdata.gust;
         if(pdata.temp !== undefined) {
             this.query.tempf = pdata.temp;
         }
