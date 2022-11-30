@@ -132,7 +132,7 @@ exports.parseData = function (data, dir_offset) {
             pdata.startup = parseInt(data.data.substring(20,21));
         }
 
-        if(pdata.temp > 0 && pdata.hum > 0) {
+        if( (n == 18 || n == 21) && pdata.temp > 0 && pdata.hum > 0) {
             dewCalc = require(__dirname + '/dew.js');
             try {
                 pdata.dewp = convert(dewCalc.dewPoint(pdata.hum,convert(pdata.temp).from('F').to('K'))).from('K').to('F').toFixed(2);
