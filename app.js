@@ -43,9 +43,9 @@ var args = require('yargs')
     .option('openweathermap', {
         describe: 'OpenWeatherMap settings. external_id:appkey'
     })
-    // .option('cwop', {
-    //     describe: 'CWOP settings.'
-    // })
+    .option('cwop', {
+        describe: 'CWOP settings.'
+    })
 
     .demandOption(['deviceID'], 'Please provide device ID at minimum.')
     .help()
@@ -133,16 +133,17 @@ if(args.openweathermap !== undefined) {
     console.info('Reporting to OpenWeatherMap: ' + openweathermap_credentials.external_id);
 }
 
-// if(args.cwop !== undefined) {
-//     var cwop = args.cwop.match(/([^:]*):(.*)/);
-//     const openweathermap_credentials = {
-//         id:   cwop_idpass[1],
-//         apikey:   openweathermap_idpass[2],
-//     };
-//     storage.openweathermap = require(__dirname + '/services/openweathermap.js');
-//     storage.openweathermap.login(openweathermap_credentials.external_id, weathercloud_credentials.apikey);
-//     console.log('Reporting to OpenWeatherMap: ' + openweathermap_credentials.external_id);
-// }
+if(args.cwop !== undefined) {
+    const cwop_credentials = {
+        id:   args.cwop.match(/([^:]*):(.*)/)[1],
+        password:   args.cwop.match(/([^:]*):(.*)/)[2],
+    };
+    storage.cwop = require(__dirname + '/services/cwop.js');
+    storage.cwop.login(cwop_credentials.id, cwop_credentials.password);
+    console.log('Reporting to CWOP: ' + cwop_credentials.id);
+}
+
+
 
 var listener = require(__dirname + '/listener.js').listener;
 listener(credentials, event_name, device, dir_offset, storage);
