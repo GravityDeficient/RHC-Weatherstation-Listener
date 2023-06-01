@@ -92,6 +92,15 @@ function getEvents(event_name, device, token, dir_offset, storage) {
 exports.parseData = function (data, dir_offset) {
     let pdata = {rawData: data.data, errorMessage: ''};
     try {
+        // Sanatize for negative temperature values that will upset the string lengths
+        let temp = data.data.substring(7, 10);
+        let isNegative = false;
+
+        if (temp.includes('-')) {
+          data.data = data.data.replace(/-/g, '');
+          isNegative = true;
+        }
+        
         let n = parseInt(data.data.length);
 
         if (n != 9 && n != 10 && n != 18 && n != 21) {
@@ -130,6 +139,11 @@ exports.parseData = function (data, dir_offset) {
             pdata.hum = parseInt(data.data.substring(15,18));
             pdata.pwr = ((parseInt(data.data.substring(18,20)) * .1) + 5).toFixed(2);
             pdata.startup = parseInt(data.data.substring(20,21));
+        }
+        
+        // Set temp as negative if it was earlier
+        if (isNegative) {
+          pdata.temp = -pdata.temp;
         }
 
         if((n == 18 || n == 21) && pdata.temp > 0 && pdata.hum > 0) {
