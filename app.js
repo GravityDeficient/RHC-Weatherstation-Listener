@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-require('console-stamp')(console, 'yyyy-mm-dd HH:MM:ss');
+require('console-stamp')(console, { format: ':date(yyyy-mm-dd HH:MM:ss)' });
 
 console.log('App Start..');
 

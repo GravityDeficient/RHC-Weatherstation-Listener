@@ -1,4 +1,3 @@
-const request = require('request');
 const net = require('net');
 let cwop = {
     host: 'cwop.aprs.net',

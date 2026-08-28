@@ -1,4 +1,4 @@
-const request = require('request');
+const http = require(__dirname + '/http.js');
 const moment = require('moment');
 let windy = {
     url: 'https://stations.windy.com/pws/update/',
@@ -31,10 +31,7 @@ let windy = {
         }
     },
     send: function() {
-        request({url:this.url, qs:this.query}, function(err, response, body) {
-            if(err) { console.error(err); return; }
-            console.log("Windy Get response: " + response.statusCode);
-        });
+        http.get(this.url, this.query, 'Windy');
     }
 };
 module.exports = windy;

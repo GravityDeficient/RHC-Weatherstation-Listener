@@ -1,4 +1,4 @@
-const request = require('request');
+const http = require(__dirname + '/http.js');
 const convert = require('convert-units');
 let weathercloud = {
     url: 'http://api.weathercloud.net/v01/set',
@@ -26,10 +26,7 @@ let weathercloud = {
         }
     },
     send: function() {
-        request({url:this.url, qs:this.query}, function(err, response, body) {
-            if(err) { console.error(err); return; }
-            console.log("WeatherCloud Get response: " + response.statusCode);
-        });
+        http.get(this.url, this.query, 'WeatherCloud');
     }
 };
 module.exports = weathercloud;

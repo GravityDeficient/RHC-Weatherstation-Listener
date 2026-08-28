@@ -1,4 +1,4 @@
-const request = require('request');
+const http = require(__dirname + '/http.js');
 let openweathermap = {
     uri: 'https://api.openweathermap.org/data/3.0/stations',
     query: {
@@ -33,11 +33,7 @@ let openweathermap = {
         }
     },
     send: function() {
-        request({uri:this.uri, query:this.query, method:'POST', json:this.json}, function(err, response, body) {
-            if(err) { console.error(err); return; }
-            console.log("OpenWeatherMap Get response: " + response.statusCode);
-            console.log(response.body);
-        });
+        http.postJson(this.uri, this.query, this.json, 'OpenWeatherMap');
     }
 };
 module.exports = openweathermap;
