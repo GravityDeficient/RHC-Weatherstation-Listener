@@ -50,7 +50,7 @@ function getEvents(event_name, device, token, dir_offset, storage) {
         },
         function(err) {
             console.error('Stream Error: ',err);
-            getEvents(event_name, restart, token, dir_offset, storage);
+            getEvents(event_name, device, token, dir_offset, storage);
         }
     );
 }
