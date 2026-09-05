@@ -1,4 +1,4 @@
-const request = require('request');
+const http = require(__dirname + '/http.js');
 const moment = require('moment');
 let pwsweather = {
     url: 'http://www.pwsweather.com/pwsupdate/pwsupdate.php',
@@ -32,10 +32,7 @@ let pwsweather = {
         }
     },
     send: function() {
-        request({url:this.url, qs:this.query}, function(err, response, body) {
-            if(err) { console.error(err); return; }
-            console.log("PWSWeather Get response: " + response.statusCode);
-        });
+        http.get(this.url, this.query, 'PWSWeather');
     }
 };
 module.exports = pwsweather;

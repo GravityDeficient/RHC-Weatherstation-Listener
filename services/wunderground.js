@@ -1,4 +1,4 @@
-const request = require('request');
+const http = require(__dirname + '/http.js');
 
 let wunderground = {
     url: 'http://weatherstation.wunderground.com/weatherstation/updateweatherstation.php',
@@ -34,10 +34,7 @@ let wunderground = {
         }
     },
     send: function() {
-        request({url:this.url, qs:this.query}, function(err, response, body) {
-            if(err) { console.error(err); return; }
-            console.log("WUnderground Get response: " + response.statusCode);
-        });
+        http.get(this.url, this.query, 'WUnderground');
     }
 };
 module.exports = wunderground;
