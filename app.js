@@ -43,6 +43,9 @@ var args = require('yargs')
     .option('openweathermap', {
         describe: 'OpenWeatherMap settings. external_id:appkey'
     })
+    .option('windguru', {
+        describe: 'WindGuru settings. uid:password'
+    })
     // .option('cwop', {
     //     describe: 'CWOP settings.'
     // })
@@ -131,6 +134,16 @@ if(args.openweathermap !== undefined) {
     storage.openweathermap = require(__dirname + '/services/openweathermap.js');
     storage.openweathermap.login(openweathermap_credentials.external_id, openweathermap_credentials.apikey);
     console.info('Reporting to OpenWeatherMap: ' + openweathermap_credentials.external_id);
+}
+
+if(args.windguru !== undefined) {
+    const windguru_credentials = {
+        uid:   args.windguru.match(/([^:]*):(.*)/)[1],
+        password:   args.windguru.match(/([^:]*):(.*)/)[2],
+    };
+    storage.windguru = require(__dirname + '/services/windguru.js');
+    storage.windguru.login(windguru_credentials.uid, windguru_credentials.password);
+    console.info('Reporting to WindGuru: ', windguru_credentials.uid);
 }
 
 // if(args.cwop !== undefined) {
